@@ -1,0 +1,11 @@
+
+spring:
+  application:
+    name: spring-boot-3-custom-annotation-api
+
+external:
+  callers:
+    - id: random-id-1
+      name: caller1
+    - id: random-id-2
+      name: caller2
