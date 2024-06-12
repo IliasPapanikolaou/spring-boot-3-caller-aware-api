@@ -6,6 +6,6 @@ spring:
 external:
   callers:
     - id: random-id-1
-      name: caller1
+      name: caller1 # OTE_STRAPI
     - id: random-id-2
       name: caller2

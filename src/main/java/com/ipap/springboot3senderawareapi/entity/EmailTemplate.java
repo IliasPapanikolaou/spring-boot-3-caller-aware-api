@@ -1,5 +1,6 @@
 package com.ipap.springboot3senderawareapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,6 +9,8 @@ public class EmailTemplate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // We can use @JsonIgnore to not return this field to the caller system
+    @JsonIgnore
     private String caller; // Caller Name to identify the owner
 
     private String templateName;
