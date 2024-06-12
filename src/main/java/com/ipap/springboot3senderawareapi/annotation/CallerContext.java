@@ -1,4 +1,4 @@
-package com.ipap.springboot3customannotationapi.annotation;
+package com.ipap.springboot3senderawareapi.annotation;
 
 public class CallerContext {
     private static final ThreadLocal<String> callerName = new ThreadLocal<>();

@@ -1,6 +1,6 @@
-package com.ipap.springboot3customannotationapi.annotation;
+package com.ipap.springboot3senderawareapi.annotation;
 
-import com.ipap.springboot3customannotationapi.config.CallerProperties;
+import com.ipap.springboot3senderawareapi.config.CallerProperties;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -26,7 +26,7 @@ public class CallerCheckAspect {
         this.callerProperties = callerProperties;
     }
 
-    @Before("@annotation(com.ipap.springboot3customannotationapi.annotation.CallerCheck)")
+    @Before("@annotation(com.ipap.springboot3senderawareapi.annotation.CallerCheck)")
     public void checkCaller(JoinPoint joinPoint) {
         HttpServletRequest request =
                 ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -50,7 +50,7 @@ public class CallerCheckAspect {
         CallerContext.setCallerName(caller.getName());
     }
 
-    @After("@annotation(com.ipap.springboot3customannotationapi.annotation.CallerCheck)")
+    @After("@annotation(com.ipap.springboot3senderawareapi.annotation.CallerCheck)")
     public void clearCallerContext() {
         CallerContext.clear();
     }

@@ -1,4 +1,4 @@
-package com.ipap.springboot3customannotationapi.annotation;
+package com.ipap.springboot3senderawareapi.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

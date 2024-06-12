@@ -1,4 +1,4 @@
-package com.ipap.springboot3customannotationapi.entity;
+package com.ipap.springboot3senderawareapi.entity;
 
 import jakarta.persistence.*;
 

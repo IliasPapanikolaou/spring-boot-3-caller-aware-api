@@ -1,8 +1,8 @@
-package com.ipap.springboot3customannotationapi.controller;
+package com.ipap.springboot3senderawareapi.controller;
 
-import com.ipap.springboot3customannotationapi.annotation.CallerCheck;
-import com.ipap.springboot3customannotationapi.entity.EmailTemplate;
-import com.ipap.springboot3customannotationapi.service.EmailTemplateService;
+import com.ipap.springboot3senderawareapi.annotation.CallerCheck;
+import com.ipap.springboot3senderawareapi.entity.EmailTemplate;
+import com.ipap.springboot3senderawareapi.service.EmailTemplateService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +32,7 @@ public class EmailTemplateController {
     }
 
     @GetMapping
+    @CallerCheck
     public Iterable<EmailTemplate> getAllTemplates() {
         return emailTemplateService.getAllTemplates();
     }

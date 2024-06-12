@@ -1,8 +1,8 @@
-package com.ipap.springboot3customannotationapi.service;
+package com.ipap.springboot3senderawareapi.service;
 
-import com.ipap.springboot3customannotationapi.annotation.CallerContext;
-import com.ipap.springboot3customannotationapi.entity.EmailTemplate;
-import com.ipap.springboot3customannotationapi.repository.EmailTemplateRepository;
+import com.ipap.springboot3senderawareapi.annotation.CallerContext;
+import com.ipap.springboot3senderawareapi.entity.EmailTemplate;
+import com.ipap.springboot3senderawareapi.repository.EmailTemplateRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -34,7 +34,8 @@ public class EmailTemplateService {
     }
 
     public Iterable<EmailTemplate> getAllTemplates() {
-        return emailTemplateRepository.findAll();
+        String callerName = CallerContext.getCallerName();
+        return emailTemplateRepository.findEmailTemplateByCallerId(callerName);
     }
 }
 
