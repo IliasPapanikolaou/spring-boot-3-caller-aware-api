@@ -8,16 +8,16 @@ public class EmailTemplate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String callerId; // Caller ID to identify the owner
+    private String caller; // Caller Name to identify the owner
 
     private String templateName;
 
     @Lob
     private String templateContent;
 
-    public EmailTemplate(Long id, String callerId, String templateName, String templateContent) {
+    public EmailTemplate(Long id, String caller, String templateName, String templateContent) {
         this.id = id;
-        this.callerId = callerId;
+        this.caller = caller;
         this.templateName = templateName;
         this.templateContent = templateContent;
     }
@@ -33,12 +33,12 @@ public class EmailTemplate {
         this.id = id;
     }
 
-    public String getCallerId() {
-        return callerId;
+    public String getCaller() {
+        return caller;
     }
 
-    public void setCallerId(String callerId) {
-        this.callerId = callerId;
+    public void setCaller(String caller) {
+        this.caller = caller;
     }
 
     public String getTemplateName() {

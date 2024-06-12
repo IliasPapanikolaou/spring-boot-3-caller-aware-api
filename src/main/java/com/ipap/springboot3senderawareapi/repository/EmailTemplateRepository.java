@@ -7,6 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EmailTemplateRepository extends JpaRepository<EmailTemplate, Long> {
-    Optional<EmailTemplate> findByIdAndCallerId(Long id, String callerId);
-    List<EmailTemplate> findEmailTemplateByCallerId(String callerId);
+    Optional<EmailTemplate> findByIdAndCaller(Long id, String caller);
+    List<EmailTemplate> findEmailTemplateByCaller(String caller);
 }

@@ -18,13 +18,13 @@ public class EmailTemplateService {
 
     public EmailTemplate saveTemplate(EmailTemplate template) {
         String callerName = CallerContext.getCallerName();
-        template.setCallerId(callerName);
+        template.setCaller(callerName);
         return emailTemplateRepository.save(template);
     }
 
     public EmailTemplate updateTemplate(Long id, EmailTemplate updatedTemplate) {
         String callerName = CallerContext.getCallerName();
-        EmailTemplate existingTemplate = emailTemplateRepository.findByIdAndCallerId(id, callerName)
+        EmailTemplate existingTemplate = emailTemplateRepository.findByIdAndCaller(id, callerName)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.FORBIDDEN, "Not allowed to modify this template"));
 
         existingTemplate.setTemplateName(updatedTemplate.getTemplateName());
@@ -35,7 +35,7 @@ public class EmailTemplateService {
 
     public Iterable<EmailTemplate> getAllTemplates() {
         String callerName = CallerContext.getCallerName();
-        return emailTemplateRepository.findEmailTemplateByCallerId(callerName);
+        return emailTemplateRepository.findEmailTemplateByCaller(callerName);
     }
 }
 
